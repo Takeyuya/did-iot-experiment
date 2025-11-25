@@ -1,0 +1,16 @@
+{
+  "id": "vc:device-auth:userA",
+  "issuer": "did:example:company",
+  "subject": "did:example:userA",
+  "claim": {
+    "cid": "QmRh3fCVx3AuedwpND6TRKpZKVo9TdbtK8cjNDxP9d7TS3",
+    "verifiedByDevice": "company-original"
+  },
+  "proof": {
+    "type": "EcdsaSecp256k1",
+    "created": "2025-11-25T05:41:56.919Z",
+    "verificationMethod": "did:example:company#key-1",
+    "hash": "0x01d28843637f345e1dc64a46a2fb298a5113d2114923dc04e9e690ca595a6709",
+    "signature": "0x376451ec40306f9ad3c0aff209d5b78d716393352d6394d9a431e830946f6b8e4f37f0f6c902e699d3281793c2446df0f8dd47166e1cf805ec6418f1938d0cff1c"
+  }
+}
