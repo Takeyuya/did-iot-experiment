@@ -1,0 +1,16 @@
+{
+  "deviceId": "sensor-A1",
+  "owner": "userA",
+  "timestamp": "2025-11-24T10:20:31Z",
+  "location": {
+    "lat": 35.6895,
+    "lng": 139.6917
+  },
+  "data": {
+    "temperature": 25.5,
+    "humidity": 60.2,
+    "vibration": 0.02,
+    "co2": 418.5
+  },
+  "deviceSignature": "sample-device-signature"
+}
