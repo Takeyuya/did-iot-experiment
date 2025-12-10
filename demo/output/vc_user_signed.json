@@ -8,16 +8,16 @@
   },
   "proof": {
     "type": "EcdsaSecp256k1",
-    "created": "2025-11-25T05:41:56.919Z",
+    "created": "2025-12-10T04:26:36.210Z",
     "verificationMethod": "did:example:company#key-1",
     "hash": "0x01d28843637f345e1dc64a46a2fb298a5113d2114923dc04e9e690ca595a6709",
-    "signature": "0x376451ec40306f9ad3c0aff209d5b78d716393352d6394d9a431e830946f6b8e4f37f0f6c902e699d3281793c2446df0f8dd47166e1cf805ec6418f1938d0cff1c"
+    "signature": "0xcbe488925fd39ec48b01be93fd54beef08bc71893c85c92124fd7a8635d68ff14227274702d31d76787e7701fbb1ec7bab007241b1ad2f19b9e8d4e90705b83f1c"
   },
   "userProof": {
     "type": "EcdsaSecp256k1",
-    "created": "2025-11-25T05:42:14.087Z",
+    "created": "2025-12-10T04:28:40.597Z",
     "verificationMethod": "did:example:userA#key-1",
-    "hash": "0x4707d63121425e522fd395c71653cc077baa529120f387ebda59e8557a5efb37",
-    "signature": "0x5031e4b11a53563ca061f30b24bd8804b3af5cb89f2022e9a068f255975c46d65acf38815fb9837aabd7ff345bce4b7e52324eeeab13cff4b0804fff114c7c841b"
+    "hash": "0x8000b631d728a8f8ee48eace13fb18da10526a3bec3e2f425f6926c88aef5cac",
+    "signature": "0x62c1c00281241548c1c7496d1b7b1656333260da3d7e64276c143c888e42e990701489edef00ad1f78f8713d7dbd4f2da589206a167e543bd95a9ca47b7271101b"
   }
 }
