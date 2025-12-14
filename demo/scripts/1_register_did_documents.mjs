@@ -28,27 +28,21 @@ import { createWeb3, getAccounts, getRegistryContract, registerIoTData, register
     controller: company
   };
 
-  console.log("① UserA と Company の DID Document を作成しました。\n");
-  console.log("📄 UserA DID Document:");
-  console.log(JSON.stringify(didDocUserA, null, 2), "\n");
-
-  console.log("📄 Company DID Document:");
-  console.log(JSON.stringify(didDocCompany, null, 2), "\n");
+  console.log("[1] DID Document を作成しました。\n");
+  console.log(`📄 UserA DID: ${didUserA}`);
+  console.log(`📄 Company DID: ${didCompany}`);
 
   // ファイル保存
   fs.writeFileSync("demo/output/userA_did.json", JSON.stringify(didDocUserA, null, 2));
   fs.writeFileSync("demo/output/company_did.json", JSON.stringify(didDocCompany, null, 2));
 
-  console.log("② DID Document をファイルに保存しました。");
-  console.log("   保存先: demo/output/*.json\n");
-
   // --- UserA の DID 登録 ---
-  console.log("④ UserA の DID をブロックチェーンへ登録中...");
+  console.log("[2] UserA の DID をブロックチェーンへ登録中...");
   await registerIoTDocument(registry, userA, didUserA, didDocUserA);
   console.log("   → UserA の DID を登録しました。\n");
 
   // --- Company の DID 登録 ---
-  console.log("⑤ Company の DID をブロックチェーンへ登録中...");
+  console.log("[3] Company の DID をブロックチェーンへ登録中...");
   await registerIoTDocument(registry, company, didCompany, didDocCompany);
   console.log("   → Company の DID を登録しました。\n");
 

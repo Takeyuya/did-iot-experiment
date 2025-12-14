@@ -8,9 +8,9 @@
   },
   "proof": {
     "type": "EcdsaSecp256k1",
-    "created": "2025-12-10T04:26:36.210Z",
+    "created": "2025-12-12T06:56:57.139Z",
     "verificationMethod": "did:example:company#key-1",
     "hash": "0x01d28843637f345e1dc64a46a2fb298a5113d2114923dc04e9e690ca595a6709",
-    "signature": "0xcbe488925fd39ec48b01be93fd54beef08bc71893c85c92124fd7a8635d68ff14227274702d31d76787e7701fbb1ec7bab007241b1ad2f19b9e8d4e90705b83f1c"
+    "signature": "0x1ae86371302c24991e4d86938fbe18c18f091a0b89db56af1ecd82c22a6fd3920a9a86358e571a74713fadd767835bd80d2ecef4b782c366cfb30837a7f8ddad1c"
   }
 }

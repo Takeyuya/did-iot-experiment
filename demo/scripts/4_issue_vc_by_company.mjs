@@ -11,7 +11,7 @@ import { signWithPrivateKey } from "../../lib/crypto.mjs";
   const accounts = await getAccounts(web3);
   const company = accounts[1];
 
-  console.log("① Company の Ethereum アドレス:");
+  console.log("[1] Company の Ethereum アドレス:");
   console.log(`   → ${company}\n`);
 
   // --- 入力データ ---
@@ -19,13 +19,13 @@ import { signWithPrivateKey } from "../../lib/crypto.mjs";
   const didUserA = JSON.parse(fs.readFileSync("demo/output/userA_did.json")).id;
   const didCompany = JSON.parse(fs.readFileSync("demo/output/company_did.json")).id;
 
-  console.log("② VC に埋め込む情報を確認:");
+  console.log("[2] VC 生成に使用する情報:");
   console.log(`   CID        → ${cid}`);
   console.log(`   User DID   → ${didUserA}`);
   console.log(`   Company DID→ ${didCompany}\n`);
 
   // --- VC を作成 ---
-  console.log("③ VC オブジェクトを生成中...\n");
+  console.log("[3] VC オブジェクトを生成中...\n");
   const vc = {
     id: "vc:device-auth:userA",
     issuer: didCompany,
@@ -38,7 +38,7 @@ import { signWithPrivateKey } from "../../lib/crypto.mjs";
   };
 
   // --- VC に署名 ---
-  console.log("④ VC 内容に対して Company が署名を付与...\n");
+  console.log("[4] 発行者が秘密鍵によるVC署名処理を実行中...\n");
   const { signature, messageHash } = await signWithPrivateKey(company, vc);
 
   vc.proof = {
@@ -52,11 +52,13 @@ import { signWithPrivateKey } from "../../lib/crypto.mjs";
   // 保存
   fs.writeFileSync("demo/output/vc_device_auth.json", JSON.stringify(vc, null, 2));
 
-  console.log("⑤ VC の発行が完了しました！");
-  console.log("   以下が企業によって発行された VC の内容です：\n");
-  console.log("===== 🔍 発行された VC の内容 =====");
-  console.log(JSON.stringify(vc, null, 2));
-  console.log("==================================\n");
+  console.log("[5] VC の発行が完了しました！");
+  // console.log("   以下が企業によって発行された VC の内容です：\n");
+  // console.log("===== 🔍 発行された VC の内容 =====");
+  // console.log(JSON.stringify(vc, null, 2));
+  // console.log("==================================\n");
 
-  console.log("🎉 Step4 完了: VC 発行成功\n");
+  console.log("==========================================");
+  console.log("Step4 完了: VC 発行処理が正常に終了しました");
+  console.log("==========================================\n");
 })();

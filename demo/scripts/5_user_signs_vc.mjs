@@ -11,11 +11,11 @@ import { signWithPrivateKey } from "../../lib/crypto.mjs";
   const accounts = await getAccounts(web3);
   const userA = accounts[0];
 
-  console.log("① UserA の Ethereum アドレス:");
+  console.log("[1] UserA の Ethereum アドレス:");
   console.log(`   → ${userA}\n`);
 
   // --- VC を読み込み ---
-  console.log("② 企業が発行した VC を読み込みます...\n");
+  console.log("[2] 企業が発行した VC を読み込み中...\n");
   const vc = JSON.parse(
     fs.readFileSync("demo/output/vc_device_auth.json", "utf8")
   );
@@ -26,7 +26,7 @@ import { signWithPrivateKey } from "../../lib/crypto.mjs";
   console.log(`   CID          → ${vc.claim.cid}\n`);
 
   // --- UserA が VC 全体に署名 ---
-  console.log("③ UserA が VC 内容全体に対して署名します...\n");
+  console.log("[3] UserAによるVC署名処理を実行中...\n");
   const { signature, messageHash } = await signWithPrivateKey(userA, vc);
 
   vc.userProof = {
@@ -37,7 +37,7 @@ import { signWithPrivateKey } from "../../lib/crypto.mjs";
     signature: signature
   };
 
-  console.log("④ UserA による署名が完了しました。");
+  console.log("[4] UserA による署名が完了しました。");
   console.log("   以下が UserA の署名情報です：\n");
   console.log("===== 🔍 UserA の署名情報 =====");
   console.log(JSON.stringify(vc.userProof, null, 2));
@@ -46,8 +46,10 @@ import { signWithPrivateKey } from "../../lib/crypto.mjs";
   // --- 保存 ---
   fs.writeFileSync("demo/output/vc_user_signed.json", JSON.stringify(vc, null, 2));
 
-  console.log("⑤ VC（企業署名＋UserA署名）を保存しました。");
-  console.log("   保存先: demo/output/vc_user_signed.json\n");
+  // console.log("⑤ VC（企業署名＋UserA署名）を保存しました。");
+  // console.log("   保存先: demo/output/vc_user_signed.json\n");
 
-  console.log("🎉 Step5 完了: UserA による VC 署名が成功しました\n");
+  console.log("==========================================");
+  console.log("Step5 完了: UserA による VC 署名処理が正常に終了しました");
+  console.log("==========================================\n");
 })();

@@ -7,12 +7,12 @@ import { createWeb3, getAccounts, getRegistryContract, findDIDDocument, findIoTR
   // --- VCの読み込み ---
   const vc = JSON.parse(fs.readFileSync("demo/output/vc_user_signed.json", "utf8"));
 
-  console.log("\n===============================");
-  console.log("🔍 VC 検証開始");
-  console.log("===============================\n");
+  console.log("\n=====================================");
+  console.log("Step6: Verifiable Credential(VC)の検証");
+  console.log("=======================================\n");
 
   // VC の内容を表示
-  console.log("📄 検証対象の VC:");
+  console.log("[1] 検証対象の VC:");
   console.log(JSON.stringify(vc, null, 2), "\n");
 
   // --- DID Registry 接続 ---
@@ -26,7 +26,7 @@ import { createWeb3, getAccounts, getRegistryContract, findDIDDocument, findIoTR
   // ============================================================
   // 1. Issuer DID の存在確認 + 内容一致チェック
   // ============================================================
-  console.log("①🔎 Issuer の DID Document を検索...");
+  console.log("[2] Issuer の DID Document を検索...");
   
   const issuerResult = await findDIDDocument(registry, accounts, issuerDid);
 
@@ -35,7 +35,7 @@ import { createWeb3, getAccounts, getRegistryContract, findDIDDocument, findIoTR
     return;
   }
 
-  console.log("✅ Issuer DID をブロックチェーンで確認:", issuerDid);
+  // console.log("✅ Issuer DID をブロックチェーンで確認:", issuerDid);
   console.log("   ▶ 所有者アドレス:", issuerResult.owner);
   console.log("   ▶ DID Document:", issuerResult.document, "\n");
 
@@ -43,7 +43,7 @@ import { createWeb3, getAccounts, getRegistryContract, findDIDDocument, findIoTR
   // 2. Subject DID の存在+一致チェック
   // ============================================================
 
-  console.log("②🔎 Subject(UserA) の DID Document を検索...");
+  console.log("[3] Subject(UserA) の DID Document を検索...");
   
   const subjectResult = await findDIDDocument(registry, accounts, subjectDid);
 
@@ -52,7 +52,7 @@ import { createWeb3, getAccounts, getRegistryContract, findDIDDocument, findIoTR
     return;
   }
 
-  console.log("✅ Subject DID をブロックチェーンで確認:", subjectDid);
+  // console.log("✅ Subject DID をブロックチェーンで確認:", subjectDid);
   console.log("   ▶ 所有者アドレス:", subjectResult.owner);
   console.log("   ▶ DID Document:", subjectResult.document, "\n");
 
@@ -60,7 +60,7 @@ import { createWeb3, getAccounts, getRegistryContract, findDIDDocument, findIoTR
   // 3. IoT データ CID の存在+一致チェック
   // ============================================================
 
-  console.log("③🔎 IoTデータ (DID + CID) を検索...");
+  console.log("[4] IoTデータの記録を検索...");
   
   const iotResult = await findIoTRecord(registry, accounts, subjectDid ,cid);
 
@@ -69,7 +69,7 @@ import { createWeb3, getAccounts, getRegistryContract, findDIDDocument, findIoTR
     return;
   }
 
-  console.log("✅ IoTデータをブロックチェーンで確認:");
+  // console.log("✅ IoTデータをブロックチェーンで確認:");
   console.log("   ▶ DID:", iotResult.record.did);
   console.log("   ▶ CID:", iotResult.record.cid, "\n");
 
@@ -77,12 +77,12 @@ import { createWeb3, getAccounts, getRegistryContract, findDIDDocument, findIoTR
   // 4. Issuer の署名検証
   // ============================================================
 
-  console.log("④🖋 Issuer の署名を検証中...");
+  console.log("[5] Issuer の署名を検証中...");
 
   const issuerRecovered = web3.eth.accounts.recover(vc.proof.hash, vc.proof.signature);
 
-  console.log("   ▶ 署名者アドレス（recover）:", issuerRecovered);
-  console.log("   ▶ 想定 Issuer アドレス     :", issuerResult.owner);
+  console.log("   ▶ recover結果:", issuerRecovered);
+  console.log("   ▶ 登録Issuerアドレス     :", issuerResult.owner);
 
   if (issuerRecovered.toLowerCase() === issuerResult.owner.toLowerCase()) {
     console.log("   ✅ Issuer の署名は正しい\n");
@@ -94,12 +94,12 @@ import { createWeb3, getAccounts, getRegistryContract, findDIDDocument, findIoTR
   // 5. UserA の署名検証
   // ============================================================
 
-  console.log("⑤🖋 UserA の署名を検証中...");
+  console.log("[6] UserA の署名を検証中...");
 
   const userRecovered = web3.eth.accounts.recover(vc.userProof.hash, vc.userProof.signature);
 
   console.log("   ▶ recover結果:", userRecovered);
-  console.log("   ▶ 想定 UserA:", subjectResult.owner);
+  console.log("   ▶ UserAアドレス", subjectResult.owner);
 
   if (userRecovered.toLowerCase() === subjectResult.owner.toLowerCase()) {
     console.log("   ✅ UserA の署名は正しい\n");
@@ -108,6 +108,6 @@ import { createWeb3, getAccounts, getRegistryContract, findDIDDocument, findIoTR
   }
 
   console.log("===============================");
-  console.log("🎉 VC 検証 完了");
+  console.log("Step6 完了: VC検証処理が正常に終了しました");
   console.log("===============================\n");
 })();

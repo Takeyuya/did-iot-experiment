@@ -8,16 +8,16 @@
   },
   "proof": {
     "type": "EcdsaSecp256k1",
-    "created": "2025-12-10T04:26:36.210Z",
+    "created": "2025-12-12T06:56:57.139Z",
     "verificationMethod": "did:example:company#key-1",
     "hash": "0x01d28843637f345e1dc64a46a2fb298a5113d2114923dc04e9e690ca595a6709",
-    "signature": "0xcbe488925fd39ec48b01be93fd54beef08bc71893c85c92124fd7a8635d68ff14227274702d31d76787e7701fbb1ec7bab007241b1ad2f19b9e8d4e90705b83f1c"
+    "signature": "0x1ae86371302c24991e4d86938fbe18c18f091a0b89db56af1ecd82c22a6fd3920a9a86358e571a74713fadd767835bd80d2ecef4b782c366cfb30837a7f8ddad1c"
   },
   "userProof": {
     "type": "EcdsaSecp256k1",
-    "created": "2025-12-10T04:28:40.597Z",
+    "created": "2025-12-12T07:49:43.109Z",
     "verificationMethod": "did:example:userA#key-1",
-    "hash": "0x8000b631d728a8f8ee48eace13fb18da10526a3bec3e2f425f6926c88aef5cac",
-    "signature": "0x62c1c00281241548c1c7496d1b7b1656333260da3d7e64276c143c888e42e990701489edef00ad1f78f8713d7dbd4f2da589206a167e543bd95a9ca47b7271101b"
+    "hash": "0x9911a002516a2b7e7009192b89c07131fdc5561d3c4fee8677f2929d07d61268",
+    "signature": "0x73ff394e52afac70b0f57c99c019bdc9ebf05039175574313a3aafb8fa895e770c1b2ec394fb710fc3523f420b3ec9f0e00909b3eeb3b6e695af447bf730d3431c"
   }
 }
